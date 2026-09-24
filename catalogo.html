@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de vehículos | Importadora KP</title>
+  <meta name="description" content="Vehículos importados de Estados Unidos disponibles y próximos a ingresar en Importadora KP, Guatemala.">
+  <link rel="icon" href="img/logo-kp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="catalogo">
+
+  <header class="encabezado" id="encabezado"></header>
+
+  <main>
+    <section class="cabecera-pagina">
+      <div class="contenedor">
+        <nav class="migas" aria-label="Ruta"><a href="index.html">Inicio</a> / <span id="migaActual">Catálogo</span></nav>
+        <h1 id="tituloCatalogo">Vehículos disponibles</h1>
+        <p id="bajadaCatalogo">Importados de Estados Unidos, revisados y listos para entrega.</p>
+        <div class="pestanas" role="tablist" aria-label="Tipo de inventario">
+          <button class="pestana" role="tab" id="tabDisponibles" data-vista="disponibles" aria-controls="resultados">Disponibles <span class="pestana__cuenta" id="cuentaDisponibles"></span></button>
+          <button class="pestana" role="tab" id="tabProximos" data-vista="proximamente" aria-controls="resultados">Próximos a ingresar <span class="pestana__cuenta" id="cuentaProximos"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="contenedor catalogo">
+      <!-- Filtros -->
+      <aside class="filtros" id="filtros" aria-label="Filtros">
+        <div class="filtros__cabeza">
+          <h2>Filtrar</h2>
+          <button class="filtros__limpiar" id="limpiarFiltros" type="button">Borrar filtros</button>
+          <button class="filtros__cerrar" id="cerrarFiltros" type="button" aria-label="Cerrar filtros"></button>
+        </div>
+        <div id="gruposFiltros"></div>
+        <div class="filtros__pie">
+          <button class="btn btn--oro btn--bloque" id="verResultados" type="button">Ver resultados</button>
+        </div>
+      </aside>
+      <div class="fondo-filtros" id="fondoFiltros"></div>
+
+      <!-- Resultados -->
+      <section id="resultados" role="tabpanel" aria-labelledby="tituloCatalogo">
+        <div class="resultados__barra">
+          <button class="btn btn--linea boton-filtros" id="abrirFiltros" type="button" aria-controls="filtros">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Filtros
+          </button>
+          <div class="busqueda">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <label class="solo-lectores" for="buscar">Buscar por marca o modelo</label>
+            <input id="buscar" type="search" placeholder="Buscar marca o modelo" autocomplete="off">
+          </div>
+          <div class="orden">
+            <label for="ordenar">Ordenar por</label>
+            <select id="ordenar">
+              <option value="destacados">Destacados</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="anio-desc">Año: más nuevo</option>
+              <option value="anio-asc">Año: más antiguo</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="resultados__cuenta" id="cuentaResultados" aria-live="polite"></p>
+        <div class="chips" id="chips"></div>
+        <div id="avisoProximos"></div>
+        <div class="rejilla" id="rejilla"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="pie" id="pie"></footer>
+
+  <script src="data/vehiculos.js"></script>
+  <script src="js/comun.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Importadora KP | Autos importados de Estados Unidos en Guatemala</title>
+  <meta name="description" content="Importamos, reparamos y vendemos vehículos de Estados Unidos. Autos por pedido y consignación en Km 10.8 Ruta al Atlántico, Zona 18, Guatemala.">
+  <meta property="og:title" content="Importadora KP">
+  <meta property="og:description" content="Autos importados de Estados Unidos, listos para rodar en Guatemala.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/logo-kp.png">
+  <link rel="icon" href="img/logo-kp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-pagina="inicio">
+
+  <header class="encabezado" id="encabezado"></header>
+
+  <main>
+    <!-- Portada con fotos grandes (se edita en data/vehiculos.js → CONFIG.portada) -->
+    <section class="portada" id="portada" aria-roledescription="carrusel" aria-label="Destacados">
+      <div class="portada__pista" id="portadaPista"></div>
+      <div class="portada__controles">
+        <div class="contenedor">
+          <div class="portada__puntos" id="portadaPuntos"></div>
+          <span class="portada__contador" id="portadaContador" aria-live="polite"></span>
+          <div class="portada__flechas">
+            <button class="portada__flecha" id="portadaAnterior" aria-label="Diapositiva anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="portada__flecha" id="portadaSiguiente" aria-label="Diapositiva siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios" aria-labelledby="tituloServicios">
+      <h2 class="solo-lectores" id="tituloServicios">Servicios</h2>
+      <div class="contenedor servicios__rejilla">
+        <a class="servicio" href="catalogo.html">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30h36M9 30l3-8c.6-1.6 2.1-2.6 3.8-2.6h16.4c1.7 0 3.2 1 3.8 2.6l3 8v7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2H14v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-7z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 4v10M19 9l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Importación desde USA</h3>
+          <p>Traemos vehículos de Estados Unidos y nos encargamos de todo el proceso hasta Guatemala.</p>
+        </a>
+        <div class="servicio">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M29.5 8.5a9 9 0 0 0-11.3 11.3L7.5 30.5a4 4 0 1 0 5.7 5.7l10.7-10.7a9 9 0 0 0 11.3-11.3l-5.4 5.4-4.4-1.3-1.3-4.4 5.4-5.4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+          <h3>Reparación y preparación</h3>
+          <p>Cada vehículo se revisa y repara antes de salir a la venta.</p>
+        </div>
+        <a class="servicio" id="servicioPedido" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="12" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M30 30l10 10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M15 23l2-5c.3-.8 1-1.3 1.9-1.3h4.2c.9 0 1.6.5 1.9 1.3l2 5v3H15z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <h3>Pedidos a la medida</h3>
+          <p>¿No ves lo que buscas? Dinos el modelo y tu presupuesto, y lo buscamos por ti.</p>
+        </a>
+        <a class="servicio" id="servicioConsigna" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40V18l16-10 16 10v22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M15 34l2-5c.4-1 1.3-1.6 2.3-1.6h9.4c1 0 1.9.6 2.3 1.6l2 5v4H15z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+          <h3>Consignación</h3>
+          <p>Deja tu vehículo en nuestro predio y te ayudamos a venderlo.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Disponibles -->
+    <section class="seccion" id="disponibles" aria-labelledby="tituloDisponibles">
+      <div class="contenedor">
+        <div class="seccion__cabeza">
+          <div>
+            <h2 class="seccion__titulo" id="tituloDisponibles">Disponibles</h2>
+            <p class="seccion__bajada">Vehículos listos para entrega inmediata en nuestro predio.</p>
+          </div>
+          <div class="carrusel__flechas" data-carrusel="pistaDisponibles"></div>
+        </div>
+        <div class="carrusel">
+          <div class="carrusel__pista" id="pistaDisponibles" tabindex="0" aria-label="Vehículos disponibles"></div>
+        </div>
+        <p class="seccion__mas"><a class="enlace-flecha" href="catalogo.html">Ver todo el catálogo</a></p>
+      </div>
+    </section>
+
+    <!-- Próximamente -->
+    <section class="seccion seccion--oscura" id="proximamente" aria-labelledby="tituloProximos">
+      <div class="contenedor">
+        <div class="seccion__cabeza">
+          <div>
+            <h2 class="seccion__titulo" id="tituloProximos">Próximamente</h2>
+            <p class="seccion__bajada">Vehículos en camino desde Estados Unidos. Apártalo antes de que llegue.</p>
+          </div>
+          <div class="carrusel__flechas" data-carrusel="pistaProximos"></div>
+        </div>
+        <div class="carrusel">
+          <div class="carrusel__pista" id="pistaProximos" tabindex="0" aria-label="Vehículos próximos a ingresar"></div>
+        </div>
+        <p class="seccion__mas"><a class="enlace-flecha" href="catalogo.html?ver=proximamente">Ver todos los próximos</a></p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="seccion seccion--blanca" id="contacto" aria-labelledby="tituloContacto">
+      <div class="contenedor contacto__rejilla">
+        <div>
+          <h2 class="seccion__titulo" id="tituloContacto">Visítanos o escríbenos</h2>
+          <p class="seccion__bajada">Te atendemos por WhatsApp o en persona en nuestro predio sobre la Ruta al Atlántico.</p>
+          <ul class="contacto__lista" id="contactoLista"></ul>
+          <div class="contacto__mapa" id="contactoMapa"></div>
+        </div>
+
+        <form class="formulario" id="formContacto" novalidate>
+          <h3>Envíanos un mensaje</h3>
+          <p>Llena los datos y se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+          <div class="campo__fila">
+            <div class="campo">
+              <label for="fNombre">Nombre</label>
+              <input id="fNombre" name="nombre" type="text" autocomplete="name" required>
+              <span class="campo__error" id="eNombre"></span>
+            </div>
+            <div class="campo">
+              <label for="fTelefono">Teléfono</label>
+              <input id="fTelefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel">
+              <span class="campo__error"></span>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="fInteres">Me interesa</label>
+            <select id="fInteres" name="interes"></select>
+          </div>
+          <div class="campo">
+            <label for="fMensaje">Mensaje</label>
+            <textarea id="fMensaje" name="mensaje" placeholder="Cuéntanos qué buscas, tu presupuesto o cualquier pregunta."></textarea>
+          </div>
+          <button class="btn btn--oro btn--bloque" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.5 20.5l19-8.5-19-8.5v6.6l13.5 1.9-13.5 1.9z"/></svg>
+            Enviar por WhatsApp
+          </button>
+          <p class="formulario__nota">No guardamos tus datos. El mensaje se envía directo a nuestro WhatsApp.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie" id="pie"></footer>
+
+  <script src="data/vehiculos.js"></script>
+  <script src="js/comun.js"></script>
+  <script src="js/inicio.js"></script>
+</body>
+</html>
