@@ -45,6 +45,7 @@ function pintarPortada() {
     <div class="diapositiva${i === 0 ? " es-activa" : ""}" role="group" aria-roledescription="diapositiva" aria-label="${i + 1} de ${diapositivas.length}"${i === 0 ? "" : ' aria-hidden="true"'}>
       <div class="diapositiva__fondo">${htmlFoto(d.foto, "", "")}</div>
       <div class="contenedor diapositiva__texto">
+        ${d.logo === false ? "" : `<img class="diapositiva__logo" src="${escapar(CONFIG.logo)}" alt="${i === 0 ? escapar(CONFIG.nombre) : ""}" width="640" height="311"${i === 0 ? "" : ' aria-hidden="true"'}>`}
         <${Etiqueta}>${escapar(d.titulo)}</${Etiqueta}>
         <p>${escapar(d.texto)}</p>
         <div class="diapositiva__botones">
@@ -56,7 +57,7 @@ function pintarPortada() {
   }).join("");
 
   // La primera foto carga de inmediato
-  const primera = pista.querySelector("img");
+  const primera = pista.querySelector(".diapositiva__fondo img");
   if (primera) primera.loading = "eager";
 
   const controles = seccion.querySelector(".portada__controles");
@@ -139,7 +140,7 @@ function pintarCarrusel(idPista, vehiculos, vacio) {
 
   if (!vehiculos.length) {
     pista.classList.remove("carrusel__pista");
-    pista.innerHTML = `<div class="vacio"><h3>${vacio.titulo}</h3><p>${vacio.texto}</p>${vacio.boton}</div>`;
+    pista.innerHTML = `<div class="vacio">${htmlLogoVacio()}<h3>${vacio.titulo}</h3><p>${vacio.texto}</p>${vacio.boton}</div>`;
     flechas.remove();
     return;
   }

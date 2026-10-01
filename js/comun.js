@@ -13,7 +13,7 @@ const ICONOS = {
   reloj: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.3V12l3.2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
   menu: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
   cerrar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-  // Silueta de sedán (se usa cuando falta una foto)
+  // Silueta de sedán (respaldo; hoy las fotos faltantes muestran el logo)
   sedan: '<svg viewBox="0 0 120 44" aria-hidden="true"><path fill="currentColor" d="M8 30.5c0-3 1.6-5 4.6-5.6l12.8-2.5 12.9-8.3c2.5-1.6 5.3-2.4 8.2-2.4h21.2c3.4 0 6.6 1.3 9.1 3.6l7.9 7.4 16.2 2.3c4 .6 6.9 3.9 6.9 7.9v3.6c0 1.4-1.1 2.5-2.5 2.5h-6.2a9.6 9.6 0 0 0-18.9 0H39.5a9.6 9.6 0 0 0-18.9 0H10.5C9.1 39 8 37.9 8 36.5v-6zm38.6-15.3l-10.1 7h22.8v-8.1h-9.2c-1.3 0-2.5.4-3.5 1.1zm16.1-1.1v8.1h19.8l-5.6-5.4a8 8 0 0 0-5.6-2.7h-8.6z"/><circle cx="30" cy="39" r="6.6" fill="currentColor"/><circle cx="92.2" cy="39" r="6.6" fill="currentColor"/></svg>'
 };
 
@@ -50,16 +50,19 @@ function todosLosVehiculos() {
 }
 
 /* Foto con respaldo: si la imagen no carga, se muestra la silueta */
+function htmlFotoVacia(clase = "") {
+  return `<div class="foto-vacia ${clase}"><img src="${escapar(CONFIG.logo)}" alt="" aria-hidden="true"><span>Fotos pronto</span></div>`;
+}
+
 function htmlFoto(src, alt, clase = "") {
-  if (!src) return `<div class="foto-vacia ${clase}">${ICONOS.sedan}<span>Fotos pronto</span></div>`;
+  if (!src) return htmlFotoVacia(clase);
   return `<img class="${clase}" src="${escapar(src)}" alt="${escapar(alt)}" loading="lazy" onerror="fotoFallida(this)">`;
 }
 
 function fotoFallida(img) {
   const caja = document.createElement("div");
-  caja.className = "foto-vacia " + img.className;
-  caja.innerHTML = ICONOS.sedan + "<span>Fotos pronto</span>";
-  img.replaceWith(caja);
+  caja.innerHTML = htmlFotoVacia(img.className);
+  img.replaceWith(caja.firstElementChild);
 }
 
 /* ---------- Ficha de vehículo (se usa en inicio y catálogo) ---------- */
@@ -91,14 +94,21 @@ function htmlFicha(v) {
   </article>`;
 }
 
-/* ---------- Logo ---------- */
+/* ---------- Logo ----------
+   Siempre el logo oficial (CONFIG.logo). Solo se le define la
+   altura en CSS, así nunca se deforma. */
 
 function htmlLogo() {
   return `
   <a class="logo" href="index.html" aria-label="${escapar(CONFIG.nombre)}, ir al inicio">
-    <img src="${escapar(CONFIG.logo)}" alt="${escapar(CONFIG.nombre)}" onerror="this.parentElement.classList.add('logo--texto'); this.remove();">
+    <img src="${escapar(CONFIG.logo)}" alt="${escapar(CONFIG.nombre)}" width="640" height="311" onerror="this.parentElement.classList.add('logo--texto'); this.remove();">
     <span class="logo__texto">Importadora <b>KP</b></span>
   </a>`;
+}
+
+/* Logo para estados vacíos y páginas de "no encontrado" */
+function htmlLogoVacio() {
+  return `<img class="vacio__logo" src="${escapar(CONFIG.logo)}" alt="" aria-hidden="true" width="640" height="311">`;
 }
 
 /* ---------- Redes ---------- */
@@ -135,6 +145,7 @@ function pintarEncabezado() {
     <div class="contenedor franja__fila">
       <a class="franja__dato" href="${linkWhatsApp()}" target="_blank" rel="noopener">${ICONOS.telefono}<span>${escapar(CONFIG.telefonoVisible)}</span></a>
       <a class="franja__dato franja__dato--dir" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.mapa)}" target="_blank" rel="noopener">${ICONOS.ubicacion}<span>Km 10.8 Ruta al Atlántico, Zona 18</span></a>
+      ${CONFIG.lema ? `<span class="franja__lema">${escapar(CONFIG.lema)}</span>` : ""}
       ${htmlRedes("redes redes--franja")}
     </div>
   </div>

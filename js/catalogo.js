@@ -228,13 +228,13 @@ function pintarResultados() {
 
   if (!total) {
     rejilla.innerHTML = esProximo
-      ? `<div class="vacio"><h3>Nuevos ingresos en camino</h3><p>Aún no hemos publicado las próximas unidades. Escríbenos y te avisamos en cuanto las confirmemos.</p><a class="btn btn--oro" href="${linkWhatsApp("Hola, quiero que me avisen cuando lleguen nuevos vehículos.")}" target="_blank" rel="noopener">Avísame por WhatsApp</a></div>`
-      : `<div class="vacio"><h3>Estamos preparando nuevos vehículos</h3><p>Revisa lo que viene en camino o pídenos el modelo que buscas.</p><a class="btn btn--linea" href="catalogo.html?ver=proximamente">Ver próximos a ingresar</a></div>`;
+      ? `<div class="vacio">${htmlLogoVacio()}<h3>Nuevos ingresos en camino</h3><p>Aún no hemos publicado las próximas unidades. Escríbenos y te avisamos en cuanto las confirmemos.</p><a class="btn btn--oro" href="${linkWhatsApp("Hola, quiero que me avisen cuando lleguen nuevos vehículos.")}" target="_blank" rel="noopener">Avísame por WhatsApp</a></div>`
+      : `<div class="vacio">${htmlLogoVacio()}<h3>Estamos preparando nuevos vehículos</h3><p>Revisa lo que viene en camino o pídenos el modelo que buscas.</p><a class="btn btn--linea" href="catalogo.html?ver=proximamente">Ver próximos a ingresar</a></div>`;
     return;
   }
 
   rejilla.innerHTML = `
-    <div class="vacio">
+    <div class="vacio">${htmlLogoVacio()}
       <h3>Ningún vehículo coincide con tu búsqueda</h3>
       <p>Prueba quitando algunos filtros. Si buscas un modelo específico, también podemos traerlo por pedido.</p>
       <div class="vacio__botones">

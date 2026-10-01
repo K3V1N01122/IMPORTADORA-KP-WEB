@@ -10,8 +10,13 @@
 const CONFIG = {
   nombre: "Importadora KP",
 
-  // Logo (si la imagen no existe, se muestra el nombre en texto dorado)
-  logo: "img/logo-kp.png",
+  // Logo oficial con fondo transparente (recortado del original img/logo-kp.png,
+  // sin cambiar colores ni proporciones). Si no carga, se muestra el nombre en texto.
+  logo: "img/marca/logo-kp-640.png",
+  // Versión grande para la pantalla de carga
+  logoGrande: "img/marca/logo-kp.png",
+  // Lema del logo (se muestra en la franja superior)
+  lema: "Importamos calidad, entregamos confianza",
 
   // WhatsApp: solo números, con código de país (502)
   whatsapp: "50230368005",
@@ -30,9 +35,12 @@ const CONFIG = {
   horario: "Lunes a sábado, 7:00 a. m. a 6:00 p. m.",
 
   // Portada: fotos grandes del inicio. Usa tus mejores fotos horizontales.
+  // Cada diapositiva muestra el logo oficial arriba del título.
+  // Pon  logo: false  si la foto ya trae el logo impreso (así no se repite).
   portada: [
     {
       foto: "img/portada-1.jpg",
+      logo: false, // esta foto ya trae el logo KP
       titulo: "Autos importados de Estados Unidos, listos para rodar en Guatemala",
       texto: "Los traemos, los reparamos y los dejamos en óptimas condiciones antes de entregártelos.",
       boton: "Ver disponibles",
@@ -40,6 +48,7 @@ const CONFIG = {
     },
     {
       foto: "img/portada 2.png",
+      logo: false, // esta foto ya trae el logo KP
       titulo: "¿Buscas un modelo en específico? Lo traemos por pedido",
       texto: "Dinos marca, modelo, año y presupuesto. Nosotros nos encargamos de encontrarlo e importarlo.",
       boton: "Hacer un pedido",
@@ -47,6 +56,7 @@ const CONFIG = {
     },
     {
       foto: "img/portada3.png",
+      logo: false, // esta foto ya trae el logo KP
       titulo: "Consigna tu vehículo en nuestro predio",
       texto: "Exhibimos tu carro en la Ruta al Atlántico, a la vista de miles de personas cada día.",
       boton: "Consignar mi vehículo",

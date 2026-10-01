@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!v) {
     main.innerHTML = `
     <div class="contenedor no-encontrado">
+      ${htmlLogoVacio()}
       <h1>Este vehículo ya no está publicado</h1>
       <p>Puede que ya se haya vendido o que el enlace esté incompleto. Revisa el catálogo para ver lo que tenemos ahora.</p>
       <a class="btn btn--oro" href="catalogo.html">Ver catálogo</a>

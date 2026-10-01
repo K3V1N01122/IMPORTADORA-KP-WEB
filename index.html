@@ -8,11 +8,17 @@
   <meta property="og:title" content="Importadora KP">
   <meta property="og:description" content="Autos importados de Estados Unidos, listos para rodar en Guatemala.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="img/logo-kp.png">
-  <link rel="icon" href="img/logo-kp.png">
+  <meta property="og:image" content="https://www.importadorakp.com/img/marca/og-kp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/marca/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="img/marca/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/marca/favicon-192.png">
+  <link rel="apple-touch-icon" href="img/marca/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@100..125,400..800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/marca.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-pagina="inicio">
@@ -67,6 +73,7 @@
       <div class="contenedor">
         <div class="seccion__cabeza">
           <div>
+            <p class="rotulo rotulo--izq">Entrega inmediata</p>
             <h2 class="seccion__titulo" id="tituloDisponibles">Disponibles</h2>
             <p class="seccion__bajada">Vehículos listos para entrega inmediata en nuestro predio.</p>
           </div>
@@ -84,6 +91,7 @@
       <div class="contenedor">
         <div class="seccion__cabeza">
           <div>
+            <p class="rotulo rotulo--izq">En camino desde USA</p>
             <h2 class="seccion__titulo" id="tituloProximos">Próximamente</h2>
             <p class="seccion__bajada">Vehículos en camino desde Estados Unidos. Apártalo antes de que llegue.</p>
           </div>
@@ -100,6 +108,7 @@
     <section class="seccion seccion--blanca" id="contacto" aria-labelledby="tituloContacto">
       <div class="contenedor contacto__rejilla">
         <div>
+          <p class="rotulo rotulo--izq">Contacto</p>
           <h2 class="seccion__titulo" id="tituloContacto">Visítanos o escríbenos</h2>
           <p class="seccion__bajada">Te atendemos por WhatsApp o en persona en nuestro predio sobre la Ruta al Atlántico.</p>
           <ul class="contacto__lista" id="contactoLista"></ul>
@@ -144,5 +153,6 @@
   <script src="data/vehiculos.js"></script>
   <script src="js/comun.js"></script>
   <script src="js/inicio.js"></script>
+  <script src="js/carga.js"></script>
 </body>
 </html>

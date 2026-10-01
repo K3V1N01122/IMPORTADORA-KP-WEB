@@ -1,0 +1,111 @@
+/* =============================================================
+   IMPORTADORA KP — SISTEMA DE MARCA
+   Todos los colores salen del logo oficial (img/logo-kp.png),
+   medidos directamente sobre sus píxeles:
+
+     Fondo del logo ............ #000000  negro puro
+     Cromo (K, silueta, texto) . #EAEAEA brillo · #BAB9B9 medio · #818082 sombra
+     Oro (P, lema, líneas) ..... #E7C176 brillo · #CB9E53 medio · #A17234 sombra
+     Rojo (calavera trasera) ... #E20814
+
+   Cambia los colores SOLO aquí; el resto del sitio usa estas
+   variables. No inventes colores nuevos fuera de este archivo.
+   ============================================================= */
+
+:root {
+  /* ---- Colores principales (del logo) ---- */
+  --color-primary: #CB9E53;          /* oro de la "P" */
+  --color-primary-light: #E7C176;
+  --color-primary-dark: #A17234;
+  --color-secondary: #BAB9B9;        /* cromo de la "K" */
+  --color-secondary-light: #EAEAEA;
+  --color-secondary-dark: #818082;
+  --color-accent: #E20814;           /* rojo de la calavera: solo en detalles pequeños */
+
+  /* ---- Neutros derivados del fondo negro del logo ---- */
+  --color-background: #000000;
+  --color-background-alt: #070707;
+  --color-surface: #0F0F10;
+  --color-surface-2: #17171A;
+  --color-surface-3: #202024;
+  --color-border: #26262A;
+  --color-border-strong: #3A3A40;
+
+  /* ---- Texto ---- */
+  --color-text: #F4F4F4;
+  --color-text-soft: #CFCFD0;
+  --color-muted: #9A9A9D;
+  --color-on-primary: #0A0A0A;       /* texto sobre botones dorados */
+
+  /* ---- Estados ---- */
+  --color-success: #25D366;          /* WhatsApp: se mantiene por reconocimiento */
+  --color-success-hover: #1FB857;
+  --color-error: #FF5A5F;            /* derivado del rojo del logo, aclarado para leerse sobre negro */
+
+  /* ---- Degradados metálicos (solo donde tienen sentido) ---- */
+  --grad-oro: linear-gradient(180deg, #E7C176 0%, #CB9E53 52%, #A17234 100%);
+  --grad-oro-h: linear-gradient(90deg, #A17234 0%, #E7C176 50%, #A17234 100%);
+  --grad-cromo: linear-gradient(180deg, #FFFFFF 0%, #EAEAEA 30%, #BAB9B9 58%, #818082 100%);
+  --grad-negro: linear-gradient(180deg, #111112 0%, #000000 100%);
+
+  /* ---- Transparencias de marca ---- */
+  --oro-10: rgba(203, 158, 83, .10);
+  --oro-25: rgba(203, 158, 83, .25);
+  --negro-55: rgba(0, 0, 0, .55);
+  --negro-85: rgba(0, 0, 0, .85);
+
+  /* ---- Tipografía ----
+     Títulos: Saira expandida, de la misma familia visual que
+     las letras anchas de "IMPORTADORA" y del lema del logo.
+     Texto: Barlow, legible y neutra. */
+  --fuente-titulo: "Saira", "Eurostile", "Segoe UI", sans-serif;
+  --fuente-texto: "Barlow", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ancho-titulo: 112%;              /* ancho de Saira (100% = normal, 125% = máximo) */
+  --espaciado-marca: .32em;          /* espaciado de letras como "I M P O R T A D O R A" */
+
+  /* ---- Medidas ---- */
+  --ancho: 1240px;
+  --radio: 8px;
+  --radio-sm: 4px;
+  --alto-barra: 84px;
+  --sombra: 0 18px 40px rgba(0, 0, 0, .55);
+}
+
+/* ---------- Componentes de marca reutilizables ---------- */
+
+/* Rótulo con líneas doradas a los lados, igual que el lema del logo:
+   ——— IMPORTAMOS CALIDAD, ENTREGAMOS CONFIANZA ——— */
+.rotulo {
+  display: inline-flex; align-items: center; gap: .9rem;
+  font: 600 .78rem/1.2 var(--fuente-titulo);
+  font-stretch: 118%;
+  letter-spacing: var(--espaciado-marca);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 1rem;
+}
+.rotulo::before, .rotulo::after {
+  content: ""; width: 2.25rem; height: 1px; background: var(--color-primary);
+}
+.rotulo--izq::after { display: none; }
+.rotulo--cromo { color: var(--color-secondary); }
+.rotulo--cromo::before, .rotulo--cromo::after { background: var(--color-secondary); }
+
+/* Texto metálico (para palabras destacadas) */
+.texto-oro {
+  background: var(--grad-oro);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.texto-cromo {
+  background: var(--grad-cromo);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Línea de acento: trazo cromo con remate rojo, como la silueta del logo */
+.linea-marca {
+  display: block; height: 2px; width: 72px; margin-top: 1rem;
+  background: linear-gradient(90deg, var(--color-accent) 0 14px, var(--color-secondary) 14px 100%);
+}
+
+/* Logo oficial. Nunca se estira: solo se define la altura. */
+.logo-kp { display: block; height: 100%; width: auto; max-width: 100%; object-fit: contain; }
